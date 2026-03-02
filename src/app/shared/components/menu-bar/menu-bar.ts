@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-menu-bar',
@@ -7,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrl: './menu-bar.scss',
 })
 export class MenuBar {
+  protected items = signal<AppMenuItems[]>([
+    {
+      name: 'Queue',
+      path: '',
+    },
+  ]);
+}
 
+export interface AppMenuItems {
+  name: string;
+  path: string;
 }
