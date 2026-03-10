@@ -60,6 +60,12 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
+          "options": {
+            "host": "0.0.0.0",
+            "allowedHosts": [
+              "a99a-86-62-3-230.ngrok-free.app"
+            ]
+          },
           "configurations": {
             "production": {
               "buildTarget": "navbat.ui:build:production"
