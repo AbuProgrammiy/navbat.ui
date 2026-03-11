@@ -1,1 +1,8 @@
-<div class="main"></div>
+<div class="main">
+  @for (
+    item of [1, 2, 3, 4, 1, 1, 1, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+    track $index
+  ) {
+    <app-queue-card [isCurrentUser]="item == 3"></app-queue-card>
+  }
+</div>
