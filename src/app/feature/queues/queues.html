@@ -1,6 +1,9 @@
 @if (showQueues()) {
-  <div class="queues">
-    <h2>Queues</h2>
+  <div class="main-content">
+    <div class="service-bar-container">
+      <app-service-bar></app-service-bar>
+    </div>
+    <div class="queue-list-container"></div>
   </div>
 } @else {
   <div class="empty-message-container">

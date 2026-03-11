@@ -1,5 +1,5 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-menu-bar',
@@ -14,17 +14,17 @@ export class MenuBar implements OnInit {
 
   protected items = signal<MenuBarItem[]>([
     {
-      label: 'Home',
+      label: 'Asosiy',
       path: '',
       icon: 'pi pi-home',
     },
     {
-      label: 'Queues',
-      path: '',
+      label: 'Navbatim',
+      path: 'queues',
       icon: 'pi pi-list',
     },
     {
-      label: 'Profile',
+      label: 'Profil',
       path: '',
       icon: 'pi pi-user',
     },
@@ -33,7 +33,7 @@ export class MenuBar implements OnInit {
   ngOnInit() {
     const currentPath = window.location.pathname;
     console.log(currentPath);
-    
+
 
     switch (currentPath) {
       case '/':

@@ -6,6 +6,37 @@
 }
 
 :root {
-  --primary-color: #fea88b;
-  --primary-bg-color: #fff0f0;
+
+  /* Brand Colors */
+  --color-primary: #E98B62;
+  --color-primary-light: #fEA88B;
+
+  /* Backgrounds */
+  --color-background: #F6EFEA;
+  --color-surface: #FFFFFF;
+
+  /* Borders */
+  --color-border: #E7DDD6;
+
+  /* Text */
+  --color-text: #3A2F2A;
+  --color-text-muted: #8B7E77;
+
 }
+
+.content-handler {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+// Primary: #F97316;   (orange)
+// Secondary: #FB923C
+// Accent: #FACC15    (yellow)
+
+// Background: #FFF7ED
+// Surface: #FFFFFF
+// Border: #FED7AA
+
+// Text: #1F2937
+// Muted text: #6B7280

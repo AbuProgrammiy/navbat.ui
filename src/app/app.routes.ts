@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
-import { MainLayout } from './layout/main-layout/main-layout';
 import { Home } from './feature/home/home';
+import { Queues } from './feature/queues/queues';
+import { MainLayout } from './layout/main-layout/main-layout';
 
 export const routes: Routes = [
   {
@@ -11,6 +12,10 @@ export const routes: Routes = [
         path: '',
         component: Home,
       },
+      {
+        path: 'queues',
+        component: Queues,
+      }
     ],
   },
 ];
