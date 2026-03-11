@@ -63,7 +63,10 @@
           "options": {
             "host": "0.0.0.0",
             "allowedHosts": [
-              "a99a-86-62-3-230.ngrok-free.app"
+              "*.ngrok-free.app",
+              "all",
+              "*",
+              "dcd8-86-62-3-230.ngrok-free.app"
             ]
           },
           "configurations": {
