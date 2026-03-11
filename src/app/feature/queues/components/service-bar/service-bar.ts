@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
+import { Tooltip } from 'primeng/tooltip';
 
 @Component({
   selector: 'app-service-bar',
-  imports: [],
+  imports: [
+    Tooltip
+  ],
   templateUrl: './service-bar.html',
   styleUrl: './service-bar.scss',
 })
