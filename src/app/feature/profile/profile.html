@@ -1,0 +1,54 @@
+<div class="main">
+  <div class="log-out-container">
+    <div class="log-out">
+      <i class="pi pi-sign-out"></i>
+    </div>
+  </div>
+  <div class="picture-container">
+    <img
+      class="picture"
+      src="https://www.shutterstock.com/image-vector/west-java-indonesia-june-16-600nw-2319183341.jpg"
+      alt="profile_picture"
+    />
+  </div>
+  <form [formGroup]="profileForm" class="profile-form">
+    <div class="form-field">
+      <label for="firstName">Ism</label>
+      <input
+        type="text"
+        id="firstName"
+        pInputText
+        formControlName="firstName"
+      />
+    </div>
+    <div class="form-field">
+      <label for="lastName">Familiya</label>
+      <input type="text" id="lastName" pInputText formControlName="lastName" />
+    </div>
+    <div class="form-field">
+      <label for="age">Yosh</label>
+      <input type="text" id="age" pInputText formControlName="age" />
+    </div>
+    <div class="form-field">
+      <label for="phoneNumber">Telefon raqam</label>
+      <input
+        type="text"
+        id="phoneNumber"
+        pInputText
+        formControlName="phoneNumber"
+      />
+    </div>
+    <div class="form-field">
+      <label for="email">Email</label>
+      <input type="text" id="email" pInputText formControlName="email" />
+    </div>
+    <div class="content-handler">
+      <p-button
+        type="button"
+        (click)="toggleEdit()"
+        severity="warn"
+        [label]="isEditing() ? 'Saqlash' : 'Tahrirlash'"
+      ></p-button>
+    </div>
+  </form>
+</div>

@@ -31,7 +31,7 @@ export class MenuBar implements OnInit {
     },
     {
       label: this.menuBarNames.profil,
-      path: '',
+      path: 'profile',
       icon: 'pi pi-user',
     },
   ]);
