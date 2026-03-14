@@ -12,19 +12,25 @@ export class MenuBar implements OnInit {
 
   protected activeItem = signal<string>('');
 
+  private menuBarNames = {
+    main: 'Asosiy',
+    queues: 'Navbatim',
+    profil: 'Profil',
+  };
+
   protected items = signal<MenuBarItem[]>([
     {
-      label: 'Asosiy',
+      label: this.menuBarNames.main,
       path: '',
       icon: 'pi pi-home',
     },
     {
-      label: 'Navbatim',
+      label: this.menuBarNames.queues,
       path: 'queues',
       icon: 'pi pi-list',
     },
     {
-      label: 'Profil',
+      label: this.menuBarNames.profil,
       path: '',
       icon: 'pi pi-user',
     },
@@ -34,13 +40,12 @@ export class MenuBar implements OnInit {
     const currentPath = window.location.pathname;
     console.log(currentPath);
 
-
     switch (currentPath) {
       case '/':
-        this.activeItem.set('Home');
+        this.activeItem.set(this.menuBarNames.main);
         break;
       case '/queues':
-        this.activeItem.set('Queues');
+        this.activeItem.set(this.menuBarNames.queues);
         break;
     }
   }
