@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { AsyncPipe, JsonPipe } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -6,6 +7,9 @@ import { Component } from '@angular/core';
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
-export class Home {
-
+export class Home implements OnInit {
+  test: any = null;
+  ngOnInit(): void {
+    this.test = 'hech nima yoq';
+  }
 }
