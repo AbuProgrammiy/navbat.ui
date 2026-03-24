@@ -27,6 +27,8 @@ export class SignInUp {
   protected phoneNumber = signal<string | null>(null);
   protected isLoading = signal<boolean>(false);
 
+  protected mode = signal<'send-code' | 'verify-code' | 'update-data'>('send-code');
+
   protected sendVerificationCode() {
     this.isLoading.set(true);
     const phoneNumber = this.phoneNumber();
@@ -40,6 +42,7 @@ export class SignInUp {
       .subscribe({
         next: (response) => {
           console.log(response);
+          this.mode.set('verify-code');
           this.authService.showSuccess(response.message);
         },
         error: (err: ResponseModel) => {

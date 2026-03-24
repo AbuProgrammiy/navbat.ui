@@ -1,26 +1,50 @@
 <div class="main">
   <div class="content">
     <h1 class="header">Akkauntga kirish</h1>
-    <div class="control">
-      <label class="label">Telefon raqam:</label>
-      <p-inputmask
-        #phoneNumberModel="ngModel"
-        required
+    @if (mode() == "send-code") {
+      <div class="control">
+        <label class="label">Telefon raqam:</label>
+        <p-inputmask
+          #phoneNumberModel="ngModel"
+          required
+          styleClass="w-full"
+          mask="+(99)-999-99-99"
+          placeholder="+(99)-123-45-67"
+          [(ngModel)]="phoneNumber"
+        />
+      </div>
+      <div class="control"></div>
+      <p-button
+        class="w-full"
         styleClass="w-full"
-        mask="+(99)-999-99-99"
-        placeholder="+(99)-123-45-67"
-        [(ngModel)]="phoneNumber"
+        label="Kirish"
+        severity="warn"
+        [disabled]="phoneNumberModel.invalid || isLoading()"
+        [loading]="isLoading()"
+        (onClick)="sendVerificationCode()"
       />
-    </div>
-    <div class="control"></div>
-    <p-button
-      class="w-full"
-      styleClass="w-full"
-      label="Kirish"
-      severity="warn"
-      [disabled]="phoneNumberModel.invalid || isLoading()"
-      [loading]="isLoading()"
-      (onClick)="sendVerificationCode()"
-    />
+    } @else if (mode() == "verify-code") {
+      <div class="control">
+        <label class="label">Jo'natilgan kod:</label>
+        <p-inputmask
+          #phoneNumberModel="ngModel"
+          required
+          styleClass="w-full"
+          mask="+(99)-999-99-99"
+          placeholder="+(99)-123-45-67"
+          [(ngModel)]="phoneNumber"
+        />
+      </div>
+      <div class="control"></div>
+      <p-button
+        class="w-full"
+        styleClass="w-full"
+        label="Tasdiqlash"
+        severity="warn"
+        [disabled]="phoneNumberModel.invalid || isLoading()"
+        [loading]="isLoading()"
+        (onClick)="sendVerificationCode()"
+      />
+    }
   </div>
 </div>
