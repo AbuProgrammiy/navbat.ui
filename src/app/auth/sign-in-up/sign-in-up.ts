@@ -25,8 +25,10 @@ export class SignInUp {
   private readonly destroyRef = inject(DestroyRef);
 
   protected phoneNumber = signal<string | null>(null);
+  protected isLoading = signal<boolean>(false);
 
   protected sendVerificationCode() {
+    this.isLoading.set(true);
     const phoneNumber = this.phoneNumber();
 
     if (!phoneNumber) return;
@@ -42,6 +44,9 @@ export class SignInUp {
         },
         error: (err: ResponseModel) => {
           this.authService.showError(err.message);
+        },
+        complete: () => {
+          this.isLoading.set(false);
         }
       });
   }
