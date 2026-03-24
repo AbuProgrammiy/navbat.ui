@@ -1,8 +1,9 @@
 import { Routes } from '@angular/router';
+import { SignInUp } from './auth/sign-in-up/sign-in-up';
 import { Home } from './feature/home/home';
+import { Profile } from './feature/profile/profile';
 import { Queues } from './feature/queues/queues';
 import { MainLayout } from './layout/main-layout/main-layout';
-import { Profile } from './feature/profile/profile';
 
 export const routes: Routes = [
   {
@@ -20,6 +21,10 @@ export const routes: Routes = [
       {
         path: 'profile',
         component: Profile,
+      },
+      {
+        path: 'sign-in-up',
+        component: SignInUp,
       }
     ],
   },

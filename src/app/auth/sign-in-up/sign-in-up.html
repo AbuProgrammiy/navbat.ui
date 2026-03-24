@@ -1,1 +1,24 @@
-<p>sign-in-up works!</p>
+<div class="main">
+  <div class="content">
+    <div class="control">
+      <label class="label">Telefon raqam:</label>
+      <p-inputmask
+        #phoneNumberModel="ngModel"
+        required
+        styleClass="w-full"
+        mask="+(99)-999-99-99"
+        placeholder="+(99)-123-45-67"
+        [(ngModel)]="phoneNumber"
+      />
+    </div>
+    <div class="control"></div>
+    <p-button
+      class="w-full"
+      styleClass="w-full"
+      label="Kirish"
+      severity="warn"
+      [disabled]="phoneNumberModel.invalid"
+      (onClick)="sendVerificationCode()"
+    />
+  </div>
+</div>

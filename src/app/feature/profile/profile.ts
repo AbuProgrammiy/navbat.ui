@@ -1,5 +1,6 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ConfirmationService } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
@@ -12,6 +13,7 @@ import { InputTextModule } from 'primeng/inputtext';
 })
 export class Profile implements OnInit {
   private readonly fb = inject(FormBuilder);
+  private readonly router = inject(Router);
   private readonly confirmationService = inject(ConfirmationService);
   protected isEditing = signal<boolean>(false);
 
@@ -31,6 +33,7 @@ export class Profile implements OnInit {
     this.confirmationService.confirm({
       message: 'Siz Akkauntni tark etmoqchimisiz?',
       accept: () => {
+        this.router.navigate(['sign-in-up']);
       },
       reject: () => {
       }

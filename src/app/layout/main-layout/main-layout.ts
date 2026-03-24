@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ConfirmationService } from 'primeng/api';
+import { Toast } from 'primeng/toast';
 import { MenuBar } from "../../shared/components/menu-bar/menu-bar";
 import { Navbar } from "../../shared/components/navbar/navbar";
 import { ConfirmDialogCustom } from "./components/confirm-dialog-custom/confirm-dialog-custom";
@@ -11,7 +12,8 @@ import { ConfirmDialogCustom } from "./components/confirm-dialog-custom/confirm-
     RouterOutlet,
     MenuBar,
     Navbar,
-    ConfirmDialogCustom
+    ConfirmDialogCustom,
+    Toast
   ],
   providers: [ConfirmationService],
   templateUrl: './main-layout.html',
