@@ -1,0 +1,40 @@
+.main {
+  width: 22rem;
+  padding: 10px;
+}
+
+.body {
+  width: 100%;
+}
+
+.icon-content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.icon {
+  font-size: 3rem;
+  color: var(--p-red-500);
+}
+
+.message-content {
+  padding: 20px 0;
+}
+
+.message {
+  margin: 0;
+  font-size: 17px;
+  text-align: center;
+}
+
+.action-btn {
+  width: 150px;
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}

@@ -1,6 +1,6 @@
 <div class="main">
   <div class="log-out-container">
-    <div class="log-out">
+    <div class="log-out" (click)="logOut()">
       <i class="pi pi-sign-out"></i>
     </div>
   </div>
@@ -23,7 +23,13 @@
     </div>
     <div class="form-field">
       <label for="lastName">Familiya</label>
-      <input type="text" id="lastName" pInputText formControlName="lastName" value="OISHA" />
+      <input
+        type="text"
+        id="lastName"
+        pInputText
+        formControlName="lastName"
+        value="OISHA"
+      />
     </div>
     <div class="form-field">
       <label for="age">Yosh</label>

@@ -1,7 +1,8 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { InputTextModule } from 'primeng/inputtext';
+import { ConfirmationService } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
 
 @Component({
   selector: 'app-profile',
@@ -11,7 +12,7 @@ import { ButtonModule } from 'primeng/button';
 })
 export class Profile implements OnInit {
   private readonly fb = inject(FormBuilder);
-
+  private readonly confirmationService = inject(ConfirmationService);
   protected isEditing = signal<boolean>(false);
 
   protected profileForm = this.fb.group({
@@ -24,6 +25,16 @@ export class Profile implements OnInit {
 
   ngOnInit(): void {
     this.profileForm.disable();
+  }
+
+  protected logOut() {
+    this.confirmationService.confirm({
+      message: 'Siz Akkauntni tark etmoqchimisiz?',
+      accept: () => {
+      },
+      reject: () => {
+      }
+    });
   }
 
   protected toggleEdit() {

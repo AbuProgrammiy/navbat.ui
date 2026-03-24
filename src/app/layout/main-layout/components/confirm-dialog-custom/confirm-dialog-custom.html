@@ -1,0 +1,33 @@
+<p-confirmdialog #cd>
+  <ng-template
+    #headless
+    let-message
+    let-onAccept="onAccept"
+    let-onReject="onReject"
+  >
+    <div class="main">
+      <div class="body">
+        <div class="icon-content">
+          <i class="pi pi-exclamation-circle icon"></i>
+        </div>
+        <div class="message-content">
+          <p class="message">{{ message.message }}</p>
+        </div>
+      </div>
+      <div class="footer">
+        <p-button
+          label="Bekor"
+          severity="danger"
+          styleClass="action-btn"
+          (onClick)="onReject()"
+        ></p-button>
+        <p-button
+          label="Ha"
+          severity="success"
+          styleClass="action-btn"
+          (onClick)="onAccept()"
+        ></p-button>
+      </div>
+    </div>
+  </ng-template>
+</p-confirmdialog>

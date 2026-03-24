@@ -22,14 +22,15 @@
   border-radius: 50%;
   border: 2px solid var(--color-text-muted);
   color: var(--color-text-muted);
-  
-  .pi{
-    font-weight:700;
+  cursor: pointer;
+
+  .pi {
+    font-weight: 700;
     font-size: 13px;
   }
 }
 
-.picture-container{
+.picture-container {
   width: 100%;
   padding-top: 40px;
   padding-bottom: 20px;
@@ -37,7 +38,7 @@
   justify-content: center;
 }
 
-.picture{
+.picture {
   width: 25%;
   height: 25%;
   border-radius: 50%;
@@ -51,7 +52,7 @@
   margin-bottom: 20px;
   padding: 0 10%;
 
-  label{
+  label {
     font-weight: 700;
     color: var(--color-text-muted);
   }
