@@ -1,1 +1,19 @@
-<app-filter-bar></app-filter-bar>
+<div class="main">
+  <div class="filter-content" [class.collapsed]="isFilterCollapsed()">
+    <app-filter-bar></app-filter-bar>
+    <div class="collapse-content">
+      <button
+        class="collapse-btn"
+        (click)="isFilterCollapsed.set(!isFilterCollapsed())"
+      >
+        <i
+          class="pi"
+          [ngClass]="{
+            'pi-angle-down': isFilterCollapsed(),
+            'pi-angle-up': !isFilterCollapsed(),
+          }"
+        ></i>
+      </button>
+    </div>
+  </div>
+</div>
