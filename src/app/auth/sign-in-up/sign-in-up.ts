@@ -6,8 +6,8 @@ import { Button } from "primeng/button";
 import { InputMask } from 'primeng/inputmask';
 import { InputOtp } from 'primeng/inputotp';
 import { finalize } from 'rxjs';
+import { AuthService } from '../../core/services/auth-service';
 import { ResponseModel } from '../../shared/models/responde.model';
-import { AuthService } from '../../shared/services/auth-service';
 
 @Component({
   selector: 'app-sign-in-up',
