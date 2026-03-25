@@ -33,6 +33,7 @@ export class Profile implements OnInit {
     this.confirmationService.confirm({
       message: 'Siz Akkauntni tark etmoqchimisiz?',
       accept: () => {
+        localStorage.clear();
         this.router.navigate(['sign-in-up']);
       },
       reject: () => {
