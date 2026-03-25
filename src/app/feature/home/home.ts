@@ -1,9 +1,9 @@
-import { AsyncPipe, JsonPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { FilterBar } from "./components/filter-bar/filter-bar";
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [FilterBar],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
