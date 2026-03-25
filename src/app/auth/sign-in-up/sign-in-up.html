@@ -10,6 +10,7 @@
           styleClass="w-full"
           mask="+(99)-999-99-99"
           placeholder="+(99)-123-45-67"
+          name="phoneNumber"
           [(ngModel)]="phoneNumber"
         />
       </div>
@@ -24,26 +25,26 @@
         (onClick)="sendVerificationCode()"
       />
     } @else if (mode() == "verify-code") {
-      <div class="control">
-        <label class="label">Jo'natilgan kod:</label>
-        <p-inputmask
-          #phoneNumberModel="ngModel"
-          required
-          styleClass="w-full"
-          mask="+(99)-999-99-99"
-          placeholder="+(99)-123-45-67"
-          [(ngModel)]="phoneNumber"
-        />
+      <div class="code-control-handler">
+        <div class="code-control">
+          <label class="label">Jo'natilgan kod:</label>
+          <p-inputotp
+            required
+            minlength="6"
+            #verificationCodeModel="ngModel"
+            [length]="6"
+            [(ngModel)]="verificationCode"
+          />
+        </div>
       </div>
-      <div class="control"></div>
       <p-button
         class="w-full"
         styleClass="w-full"
         label="Tasdiqlash"
         severity="warn"
-        [disabled]="phoneNumberModel.invalid || isLoading()"
+        [disabled]="verificationCodeModel.invalid || isLoading()"
         [loading]="isLoading()"
-        (onClick)="sendVerificationCode()"
+        (onClick)="verifyCode()"
       />
     }
   </div>

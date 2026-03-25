@@ -1,8 +1,11 @@
 import { Component, DestroyRef, inject, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Button } from "primeng/button";
 import { InputMask } from 'primeng/inputmask';
+import { InputOtp } from 'primeng/inputotp';
+import { finalize } from 'rxjs';
 import { ResponseModel } from '../../shared/models/responde.model';
 import { AuthService } from '../../shared/services/auth-service';
 
@@ -11,16 +14,19 @@ import { AuthService } from '../../shared/services/auth-service';
   imports: [
     InputMask,
     FormsModule,
-    Button
+    Button,
+    InputOtp
   ],
   templateUrl: './sign-in-up.html',
   styleUrl: './sign-in-up.scss',
 })
 export class SignInUp {
   private readonly authService = inject(AuthService);
+  private readonly router = inject(Router);
   private readonly destroyRef = inject(DestroyRef);
 
   protected phoneNumber = signal<string | null>(null);
+  protected verificationCode = signal<number | null>(null);
   protected isLoading = signal<boolean>(false);
 
   protected mode = signal<'send-code' | 'verify-code' | 'update-data'>('send-code');
@@ -33,7 +39,10 @@ export class SignInUp {
 
     this.authService.sendVerificationCode(phoneNumber)
       .pipe(
-        takeUntilDestroyed(this.destroyRef)
+        takeUntilDestroyed(this.destroyRef),
+        finalize(() => {
+          this.isLoading.set(false);
+        })
       )
       .subscribe({
         next: (response) => {
@@ -44,9 +53,36 @@ export class SignInUp {
         error: (err: ResponseModel) => {
           this.authService.showError(err.message);
         },
-        complete: () => {
+      });
+  }
+  protected verifyCode() {
+    this.isLoading.set(true);
+    const phoneNumber = this.phoneNumber();
+    const verificationCode = this.verificationCode();
+
+    if (!(phoneNumber && verificationCode)) return;
+
+    this.authService.verifyVerificationCode({
+      phoneNumber,
+      code: verificationCode
+    })
+      .pipe(
+        takeUntilDestroyed(this.destroyRef),
+        finalize(() => {
           this.isLoading.set(false);
-        }
+        })
+      )
+      .subscribe({
+        next: (response) => {
+          console.log(response);
+          localStorage.setItem('accessToken', response.data as string);
+          this.mode.set('verify-code');
+          this.authService.showSuccess('Muvafaqiyattli kirdingiz');
+          this.router.navigate(['']);
+        },
+        error: (err: ResponseModel) => {
+          this.authService.showError(err.message);
+        },
       });
   }
 }

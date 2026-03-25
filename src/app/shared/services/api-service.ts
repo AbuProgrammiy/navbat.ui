@@ -33,7 +33,7 @@ export class ApiService {
     life?: number
   ) {
     this.messageService.add({
-      severity: severity ?? 'danger',
+      severity: severity ?? 'error',
       summary: summary ?? 'Xato',
       detail: detail ?? 'Nimadir xato ketdi',
       life: life ?? 3000
