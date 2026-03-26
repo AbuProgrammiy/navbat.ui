@@ -16,4 +16,12 @@
       </button>
     </div>
   </div>
+  <div class="service-content">
+    @for (
+      item of [1, 2, 3, 1, 1, 1, 1, 11, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+      track $index
+    ) {
+      <app-service-card> </app-service-card>
+    }
+  </div>
 </div>
