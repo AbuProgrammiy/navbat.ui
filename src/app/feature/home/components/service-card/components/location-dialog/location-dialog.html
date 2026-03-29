@@ -1,0 +1,24 @@
+<p-dialog [(visible)]="isVisible" [modal]="true" [style]="{ width: '25rem' }">
+  <ng-template #header>
+    <div class="inline-flex items-center justify-center gap-2">
+
+      <span class="font-bold whitespace-nowrap">Lokatsiya</span>
+    </div>
+  </ng-template>
+  
+  Mana sizga lokatsiya
+  <div class="leaflet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  </div>
+  <ng-template #footer>
+    <div class="footer">
+      <p-button
+        label="Ypish"
+        [text]="true"
+        severity="secondary"
+        (click)="isVisible.set(false)"
+      />
+    </div>
+  </ng-template>
+</p-dialog>

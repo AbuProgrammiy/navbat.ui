@@ -4,7 +4,10 @@
   </div>
   <div class="service-picture-content">
     <div class="left-section">
-      <i class="pi pi-map-marker icon"></i>
+      <i
+        class="pi pi-map-marker icon"
+        (click)="isLocationDialogVisible.set(true)"
+      ></i>
     </div>
     <div class="middle-section">
       <img
@@ -21,5 +24,14 @@
     <h4 class="service-name">Baxtiyor Sartarosh</h4>
     <div class="block">Sifatli hizmat, yaxshi sharoit</div>
     <div class="block">Toshkent sh., Chilonzor, Qatorol 9</div>
+    <div class="content-handler">
+      <button class="attend-btn">Yozilish</button>
+    </div>
   </div>
 </div>
+
+@if (isLocationDialogVisible()) {
+  <app-location-dialog
+    [(isVisible)]="isLocationDialogVisible"
+  ></app-location-dialog>
+}

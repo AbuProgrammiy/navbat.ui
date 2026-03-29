@@ -69,3 +69,13 @@
   border-left: 5px solid var(--color-primary-light);
   color: var(--color-text-muted);
 }
+
+.attend-btn{
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 16px;
+  color: var(--color-surface);
+  background-color: var(--color-primary-light);
+  cursor: pointer;
+}
